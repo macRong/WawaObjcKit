@@ -9,6 +9,7 @@
 #ifndef WawaArray_H
 #define WawaArray_H
 #import <Foundation/Foundation.h>
+#import "WawaObject.h"
 NS_ASSUME_NONNULL_BEGIN
 
 // ============== @interface ===================
@@ -27,33 +28,7 @@ void wawa_marr_replaceObjectAtIndexFromArray(NSMutableArray *array, id value, NS
 
 // ============== @implementation ==============
 
-// --------- objc-------------
-
-BOOL wawa_objc_valid(id object, Class aClass)
-{
-    if (object != nil &&
-        (NSNull *)object != [NSNull null] &&
-        [object isKindOfClass:aClass])
-    {
-        return YES;
-    }
-    
-    return NO;
-}
-
-BOOL wawa_value_valid(id object)
-{
-    if (object != nil &&
-        (NSNull *)object != [NSNull null])
-    {
-        return YES;
-    }
-    
-    return NO;
-}
-
-
-// --------- array -------------
+#pragma mark  --------- array -------------
 
 /** @[obj] 必须有元素 */
 BOOL wawa_arr_valid(id object)
@@ -94,7 +69,7 @@ id wawa_arr_getValidObjectFromArray(NSArray *array, NSInteger index)
 }
 
 
-// --------- mutableArray -------------
+#pragma mark --------- mutableArray -------------
 
 /** @[obj] 必须有元素 */
 BOOL wawa_marr_valid(id object)
