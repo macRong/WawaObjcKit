@@ -11,12 +11,14 @@
 #import <Foundation/Foundation.h>
 NS_ASSUME_NONNULL_BEGIN
 
+BOOL wawa_value_valid(id object);
+BOOL wawa_objc_valid(id object, Class aClass);
+
 // --------- objc-------------
 
 BOOL wawa_objc_valid(id object, Class aClass)
 {
-    if (object != nil &&
-        (NSNull *)object != [NSNull null] &&
+    if (wawa_value_valid(object) &&
         [object isKindOfClass:aClass])
     {
         return YES;
