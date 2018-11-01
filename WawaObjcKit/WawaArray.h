@@ -8,7 +8,7 @@
 
 #ifndef WawaArray_H
 #define WawaArray_H
-#import <Foundation/Foundation.h>
+
 #import "WawaObject.h"
 NS_ASSUME_NONNULL_BEGIN
 
@@ -150,4 +150,5 @@ void wawa_marr_replaceObjectAtIndexFromArray(NSMutableArray *array, id value, NS
 
 
 NS_ASSUME_NONNULL_END
+
 #endif
