@@ -9,7 +9,9 @@
 #ifndef WawaHeader_h
 #define WawaHeader_h
 
-#import "WawaArray.h"
 #import "WawaObject.h"
+#import "WawaArray.h"
+#import "WawaDictionary.h"
+#import "WawaString.h"
 
 #endif /* WawaHeader_h */
