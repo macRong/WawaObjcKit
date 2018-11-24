@@ -16,17 +16,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 BOOL wawa_dic_valid(id object);
 BOOL wawa_dic_valid_containEmptyDic(id object);
-id wawa_dic_getValidObjectFromDictionary(NSDictionary *dic, id key);
+id wawa_dic_getValidObject(NSDictionary *dic, id key); ///
 
 BOOL wawa_mdic_valid(id object);
 BOOL wawa_mdic_valid_containEmptyDic(id object);
-void wawa_mdic_setValidObjectFormDictionary(NSMutableDictionary *dic, id key, id value);
+void wawa_mdic_setValidObject(NSMutableDictionary *dic, id key, id value);
+void wawa_mdic_removeKey(NSMutableDictionary *dic, id key); ///
 
 
 // ============== @implementation ===================
 
 
-#pragma mark  --------- NSDictionary -------------
+#pragma mark -  —————————————— NSDictionary —————————————
 
 BOOL wawa_dic_valid(id object)
 {
@@ -53,7 +54,7 @@ BOOL wawa_dic_valid_containEmptyDic(id object)
 }
 
 /** objectForKey: 可以不用 */
-id wawa_dic_getValidObjectFromDictionary(NSDictionary *dic, id key)
+id wawa_dic_getValidObject(NSDictionary *dic, id key)
 {
     if (wawa_dic_valid(dic) &&
         wawa_value_valid(key) &&
@@ -66,7 +67,7 @@ id wawa_dic_getValidObjectFromDictionary(NSDictionary *dic, id key)
 }
 
 
-#pragma mark  --------- NSMutableDictionary -------------
+#pragma mark -  ———————————— NSMutableDictionary ———————————
 
 BOOL wawa_mdic_valid(id object)
 {
@@ -92,7 +93,7 @@ BOOL wawa_mdic_valid_containEmptyDic(id object)
     return NO;
 }
 
-void wawa_mdic_setValidObjectFormDictionary(NSMutableDictionary *dic, id key, id value)
+void wawa_mdic_setValidObject(NSMutableDictionary *dic, id key, id value)
 {
     if (wawa_mdic_valid_containEmptyDic(dic) &&
         wawa_value_valid(key) &&
@@ -100,6 +101,16 @@ void wawa_mdic_setValidObjectFormDictionary(NSMutableDictionary *dic, id key, id
         [key conformsToProtocol:@protocol(NSCopying)])
     {
         [dic setValue:value forKey:key];
+    }
+}
+
+void wawa_mdic_removeKey(NSMutableDictionary *dic, id key)
+{
+    if (wawa_mdic_valid_containEmptyDic(dic) &&
+        wawa_value_valid(key) &&
+        [key conformsToProtocol:@protocol(NSCopying)])
+    {
+        [dic removeObjectForKey:key];
     }
 }
 

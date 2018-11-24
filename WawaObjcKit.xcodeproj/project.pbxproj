@@ -6,10 +6,6 @@
 	objectVersion = 50;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		AEC3D23921884FCD00D976B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC3D23821884FCD00D976B8 /* main.m */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		AEC3D23321884FCD00D976B8 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -24,12 +20,11 @@
 
 /* Begin PBXFileReference section */
 		AE59060E218AF27D00AAC208 /* WawaDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WawaDictionary.h; sourceTree = "<group>"; };
-		AE590610218B20F200AAC208 /* WawaString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WawaString.h; sourceTree = "<group>"; };
 		AEC3D23521884FCD00D976B8 /* WawaObjcKit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WawaObjcKit; sourceTree = BUILT_PRODUCTS_DIR; };
-		AEC3D23821884FCD00D976B8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AEC3D23F21884FD600D976B8 /* WawaArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WawaArray.h; sourceTree = "<group>"; };
 		AEC3D2402188519300D976B8 /* WawaObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WawaObject.h; sourceTree = "<group>"; };
 		AEC3D241218852C000D976B8 /* WawaHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WawaHeader.h; sourceTree = "<group>"; };
+		AED0318A21A800A000FFAC63 /* WawaString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WawaString.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,12 +57,11 @@
 		AEC3D23721884FCD00D976B8 /* WawaObjcKit */ = {
 			isa = PBXGroup;
 			children = (
-				AEC3D23821884FCD00D976B8 /* main.m */,
 				AEC3D241218852C000D976B8 /* WawaHeader.h */,
 				AEC3D2402188519300D976B8 /* WawaObject.h */,
 				AEC3D23F21884FD600D976B8 /* WawaArray.h */,
 				AE59060E218AF27D00AAC208 /* WawaDictionary.h */,
-				AE590610218B20F200AAC208 /* WawaString.h */,
+				AED0318A21A800A000FFAC63 /* WawaString.h */,
 			);
 			path = WawaObjcKit;
 			sourceTree = "<group>";
@@ -128,7 +122,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEC3D23921884FCD00D976B8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

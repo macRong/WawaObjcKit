@@ -8,7 +8,6 @@
 
 #ifndef WawaArray_H
 #define WawaArray_H
-
 #import "WawaObject.h"
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,19 +15,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 BOOL wawa_arr_valid(id object);
 BOOL wawa_arr_valid_containEmptyArray(id object);
-id wawa_arr_getValidObjectFromArray(NSArray *array, NSInteger index);
+id wawa_arr_getValidObject(NSArray *array, NSInteger index);
+NSArray* wawa_arr_subarrayWithRange(NSArray *array, NSRange range);
+
 
 BOOL wawa_marr_valid(id object);
-void wawa_marr_addValidObjectTomArray(NSMutableArray *array, id value);
-void wawa_marr_addValidArrayTomArray(NSMutableArray *array, NSArray *anArray);
-void wawa_marr_InsertValidObjectTomArray(NSMutableArray *array, id value, NSInteger index);
-void wawa_marr_removeObjectAtIndexFrommArray(NSMutableArray *array, NSInteger index);
-void wawa_marr_replaceObjectAtIndexFromArray(NSMutableArray *array, id value, NSInteger index);
+void wawa_marr_addValidObject(NSMutableArray *array, id value);
+void wawa_marr_addValidArray(NSMutableArray *array, NSArray *anArray);
+NSArray* wawa_marr_subarrayWithRange(NSMutableArray *array, NSRange range);
+void wawa_marr_removeObjectsInRange(NSMutableArray *array, NSRange range);
+void wawa_marr_InsertValidObject(NSMutableArray *array, id value, NSInteger index);
+void wawa_marr_removeObjectAtIndex(NSMutableArray *array, NSInteger index);
+void wawa_marr_replaceObjectAtIndex(NSMutableArray *array, id value, NSInteger index);
 
 
 // ============== @implementation ==============
 
-#pragma mark  --------- array -------------
+
+#pragma mark -  —————————————————— array ——————————————————
 
 /** @[obj] 必须有元素 */
 BOOL wawa_arr_valid(id object)
@@ -57,7 +61,7 @@ BOOL wawa_arr_valid_containEmptyArray(id object)
 }
 
 /** objectAtIndex: */
-id wawa_arr_getValidObjectFromArray(NSArray *array, NSInteger index)
+id wawa_arr_getValidObject(NSArray *array, NSInteger index)
 {
     if (wawa_arr_valid(array) &&
         index < array.count)
@@ -68,8 +72,29 @@ id wawa_arr_getValidObjectFromArray(NSArray *array, NSInteger index)
     return nil;
 }
 
+BOOL __wawa_arr_rangeValid(NSArray *array, NSRange range)
+{
+    if (wawa_arr_valid(array) &&
+        range.location < array.count &&
+        range.location + range.length <= array.count)
+    {
+        return YES;
+    }
+    
+    return NO;
+}
 
-#pragma mark --------- mutableArray -------------
+NSArray* wawa_arr_subarrayWithRange(NSArray *array, NSRange range)
+{
+    if (__wawa_arr_rangeValid(array, range))
+    {
+        return [array subarrayWithRange:range];
+    }
+    
+    return nil;
+}
+
+#pragma mark -  —————————————————— mutableArray ——————————————
 
 /** @[obj] 必须有元素 */
 BOOL wawa_marr_valid(id object)
@@ -97,7 +122,7 @@ BOOL wawa_marr_valid_containEmptyArray(id object)
 }
 
 /** addObject: */
-void wawa_marr_addValidObjectTomArray(NSMutableArray *array, id value)
+void wawa_marr_addValidObject(NSMutableArray *array, id value)
 {
     if (wawa_marr_valid_containEmptyArray(array) &&
         wawa_value_valid(value))
@@ -107,7 +132,7 @@ void wawa_marr_addValidObjectTomArray(NSMutableArray *array, id value)
 }
 
 /** addObjectsFromArray: */
-void wawa_marr_addValidArrayTomArray(NSMutableArray *array, NSArray *anArray)
+void wawa_marr_addValidArray(NSMutableArray *array, NSArray *anArray)
 {
     if (wawa_marr_valid_containEmptyArray(array) &&
         wawa_arr_valid(anArray))
@@ -116,8 +141,40 @@ void wawa_marr_addValidArrayTomArray(NSMutableArray *array, NSArray *anArray)
     }
 }
 
+BOOL __wawa_marr_rangeValid(NSMutableArray *array, NSRange range)
+{
+    if (wawa_marr_valid(array) &&
+        range.location < array.count &&
+        range.location + range.length <= array.count)
+    {
+        return YES;
+    }
+    
+    return NO;
+}
+
+/** subarrayWithRange */
+NSArray* wawa_marr_subarrayWithRange(NSMutableArray *array, NSRange range)
+{
+    if (__wawa_marr_rangeValid(array, range))
+    {
+      return  [array subarrayWithRange:range];
+    }
+    
+    return nil;
+}
+
+/** removeObjectsInRange */
+void wawa_marr_removeObjectsInRange(NSMutableArray *array, NSRange range)
+{
+    if (__wawa_marr_rangeValid(array, range))
+    {
+        [array removeObjectsInRange:range];
+    }
+}
+
 /** insertObject:atIndex: */
-void wawa_marr_InsertValidObjectTomArray(NSMutableArray *array, id value, NSInteger index)
+void wawa_marr_InsertValidObject(NSMutableArray *array, id value, NSInteger index)
 {
     if (wawa_marr_valid_containEmptyArray(array) &&
         wawa_value_valid(value) &&
@@ -128,7 +185,7 @@ void wawa_marr_InsertValidObjectTomArray(NSMutableArray *array, id value, NSInte
 }
 
 /** removeObjectAtIndex: */
-void wawa_marr_removeObjectAtIndexFrommArray(NSMutableArray *array, NSInteger index)
+void wawa_marr_removeObjectAtIndex(NSMutableArray *array, NSInteger index)
 {
     if (wawa_marr_valid(array) &&
          index < array.count)
@@ -138,7 +195,7 @@ void wawa_marr_removeObjectAtIndexFrommArray(NSMutableArray *array, NSInteger in
 }
 
 /** replaceObjectAtIndex:withObject: */
-void wawa_marr_replaceObjectAtIndexFromArray(NSMutableArray *array, id value, NSInteger index)
+void wawa_marr_replaceObjectAtIndex(NSMutableArray *array, id value, NSInteger index)
 {
     if (wawa_marr_valid(array) &&
         wawa_value_valid(value) &&

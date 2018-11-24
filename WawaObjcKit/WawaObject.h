@@ -12,14 +12,26 @@
 NS_ASSUME_NONNULL_BEGIN
 
 BOOL wawa_value_valid(id object);
-BOOL wawa_objc_valid(id object, Class aClass);
+BOOL wawa_objc_iskindClass_valid(id object, Class aClass);
+BOOL wawa_objc_isMember_valid(id object, Class aClass);
 
 // --------- objc-------------
 
-BOOL wawa_objc_valid(id object, Class aClass)
+BOOL wawa_objc_iskindClass_valid(id object, Class aClass)
 {
     if (wawa_value_valid(object) &&
         [object isKindOfClass:aClass])
+    {
+        return YES;
+    }
+    
+    return NO;
+}
+
+BOOL wawa_objc_isMember_valid(id object, Class aClass)
+{
+    if (wawa_value_valid(object) &&
+        [object isMemberOfClass:aClass])
     {
         return YES;
     }
