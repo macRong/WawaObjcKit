@@ -6,6 +6,13 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		046B7C4421AEF5700038ED92 /* WawaObjcKitString.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B7C3C21AEF56F0038ED92 /* WawaObjcKitString.m */; };
+		046B7C4521AEF5700038ED92 /* WawaObjcKitObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B7C3F21AEF56F0038ED92 /* WawaObjcKitObject.m */; };
+		046B7C4621AEF5700038ED92 /* WawaObjcKitArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B7C4021AEF56F0038ED92 /* WawaObjcKitArray.m */; };
+		046B7C4721AEF5700038ED92 /* WawaObjcKitDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B7C4221AEF56F0038ED92 /* WawaObjcKitDictionary.m */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		AEC3D23321884FCD00D976B8 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -19,12 +26,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AE59060E218AF27D00AAC208 /* WawaDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WawaDictionary.h; sourceTree = "<group>"; };
+		046B7C3B21AEF56F0038ED92 /* WawaObjcKitDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WawaObjcKitDictionary.h; sourceTree = "<group>"; };
+		046B7C3C21AEF56F0038ED92 /* WawaObjcKitString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WawaObjcKitString.m; sourceTree = "<group>"; };
+		046B7C3D21AEF56F0038ED92 /* WawaObjcKitString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WawaObjcKitString.h; sourceTree = "<group>"; };
+		046B7C3E21AEF56F0038ED92 /* WawaObjcKitArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WawaObjcKitArray.h; sourceTree = "<group>"; };
+		046B7C3F21AEF56F0038ED92 /* WawaObjcKitObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WawaObjcKitObject.m; sourceTree = "<group>"; };
+		046B7C4021AEF56F0038ED92 /* WawaObjcKitArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WawaObjcKitArray.m; sourceTree = "<group>"; };
+		046B7C4121AEF56F0038ED92 /* WawaObjcKitHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WawaObjcKitHeader.h; sourceTree = "<group>"; };
+		046B7C4221AEF56F0038ED92 /* WawaObjcKitDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WawaObjcKitDictionary.m; sourceTree = "<group>"; };
+		046B7C4321AEF5700038ED92 /* WawaObjcKitObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WawaObjcKitObject.h; sourceTree = "<group>"; };
 		AEC3D23521884FCD00D976B8 /* WawaObjcKit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WawaObjcKit; sourceTree = BUILT_PRODUCTS_DIR; };
-		AEC3D23F21884FD600D976B8 /* WawaArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WawaArray.h; sourceTree = "<group>"; };
-		AEC3D2402188519300D976B8 /* WawaObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WawaObject.h; sourceTree = "<group>"; };
-		AEC3D241218852C000D976B8 /* WawaHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WawaHeader.h; sourceTree = "<group>"; };
-		AED0318A21A800A000FFAC63 /* WawaString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WawaString.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +68,15 @@
 		AEC3D23721884FCD00D976B8 /* WawaObjcKit */ = {
 			isa = PBXGroup;
 			children = (
-				AEC3D241218852C000D976B8 /* WawaHeader.h */,
-				AEC3D2402188519300D976B8 /* WawaObject.h */,
-				AEC3D23F21884FD600D976B8 /* WawaArray.h */,
-				AE59060E218AF27D00AAC208 /* WawaDictionary.h */,
-				AED0318A21A800A000FFAC63 /* WawaString.h */,
+				046B7C3E21AEF56F0038ED92 /* WawaObjcKitArray.h */,
+				046B7C4021AEF56F0038ED92 /* WawaObjcKitArray.m */,
+				046B7C3B21AEF56F0038ED92 /* WawaObjcKitDictionary.h */,
+				046B7C4221AEF56F0038ED92 /* WawaObjcKitDictionary.m */,
+				046B7C4121AEF56F0038ED92 /* WawaObjcKitHeader.h */,
+				046B7C4321AEF5700038ED92 /* WawaObjcKitObject.h */,
+				046B7C3F21AEF56F0038ED92 /* WawaObjcKitObject.m */,
+				046B7C3D21AEF56F0038ED92 /* WawaObjcKitString.h */,
+				046B7C3C21AEF56F0038ED92 /* WawaObjcKitString.m */,
 			);
 			path = WawaObjcKit;
 			sourceTree = "<group>";
@@ -122,6 +137,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046B7C4621AEF5700038ED92 /* WawaObjcKitArray.m in Sources */,
+				046B7C4721AEF5700038ED92 /* WawaObjcKitDictionary.m in Sources */,
+				046B7C4521AEF5700038ED92 /* WawaObjcKitObject.m in Sources */,
+				046B7C4421AEF5700038ED92 /* WawaObjcKitString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

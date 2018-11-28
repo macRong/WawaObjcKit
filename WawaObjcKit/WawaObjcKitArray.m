@@ -1,41 +1,21 @@
 //
-//  WawaArray.h
-//  Wawa
+//  WawaObjcKitArray.m
+//  WawaObjcKit
 //
-//  Created by macRong on 2018/10/29.
-//  Copyright © 2018年 macRong. All rights reserved.
+//  Created by mac on 2018/11/28.
+//  Copyright © 2018年 mac. All rights reserved.
 //
 
-#ifndef WawaArray_H
-#define WawaArray_H
-#import "WawaObject.h"
-NS_ASSUME_NONNULL_BEGIN
+#import "WawaObjcKitArray.h"
 
-// ============== @interface ===================
-
-BOOL wawa_arr_valid(id object);
-BOOL wawa_arr_valid_containEmptyArray(id object);
-id wawa_arr_getValidObject(NSArray *array, NSInteger index);
-NSArray* wawa_arr_subarrayWithRange(NSArray *array, NSRange range);
-
-
-BOOL wawa_marr_valid(id object);
-void wawa_marr_addValidObject(NSMutableArray *array, id value);
-void wawa_marr_addValidArray(NSMutableArray *array, NSArray *anArray);
-NSArray* wawa_marr_subarrayWithRange(NSMutableArray *array, NSRange range);
-void wawa_marr_removeObjectsInRange(NSMutableArray *array, NSRange range);
-void wawa_marr_InsertValidObject(NSMutableArray *array, id value, NSInteger index);
-void wawa_marr_removeObjectAtIndex(NSMutableArray *array, NSInteger index);
-void wawa_marr_replaceObjectAtIndex(NSMutableArray *array, id value, NSInteger index);
-
-
-// ============== @implementation ==============
+static inline BOOL __wawa_marr_rangeValid(NSMutableArray *array, NSRange range);
+static inline BOOL __wawa_arr_rangeValid(NSArray *array, NSRange range);
 
 
 #pragma mark -  —————————————————— array ——————————————————
 
 /** @[obj] 必须有元素 */
-BOOL wawa_arr_valid(id object)
+inline BOOL wawa_arr_valid(id object)
 {
     if (object != nil &&
         (NSNull *)object != [NSNull null] &&
@@ -48,7 +28,7 @@ BOOL wawa_arr_valid(id object)
 }
 
 /** @[] 没元素也是有效数组 */
-BOOL wawa_arr_valid_containEmptyArray(id object)
+inline BOOL wawa_arr_valid_containEmptyArray(id object)
 {
     if (object != nil &&
         (NSNull *)object != [NSNull null] &&
@@ -61,7 +41,7 @@ BOOL wawa_arr_valid_containEmptyArray(id object)
 }
 
 /** objectAtIndex: */
-id wawa_arr_getValidObject(NSArray *array, NSInteger index)
+inline id wawa_arr_getValidObject(NSArray *array, NSInteger index)
 {
     if (wawa_arr_valid(array) &&
         index < array.count)
@@ -84,7 +64,7 @@ BOOL __wawa_arr_rangeValid(NSArray *array, NSRange range)
     return NO;
 }
 
-NSArray* wawa_arr_subarrayWithRange(NSArray *array, NSRange range)
+inline NSArray* wawa_arr_subarrayWithRange(NSArray *array, NSRange range)
 {
     if (__wawa_arr_rangeValid(array, range))
     {
@@ -94,10 +74,11 @@ NSArray* wawa_arr_subarrayWithRange(NSArray *array, NSRange range)
     return nil;
 }
 
+
 #pragma mark -  —————————————————— mutableArray ——————————————
 
 /** @[obj] 必须有元素 */
-BOOL wawa_marr_valid(id object)
+inline BOOL wawa_marr_valid(id object)
 {
     if (wawa_value_valid(object) &&
         [object isKindOfClass:[NSMutableArray class]])
@@ -109,7 +90,7 @@ BOOL wawa_marr_valid(id object)
 }
 
 /** @[] 没元素也是有效数组 */
-BOOL wawa_marr_valid_containEmptyArray(id object)
+inline BOOL wawa_marr_valid_containEmptyArray(id object)
 {
     if (object != nil &&
         (NSNull *)object != [NSNull null] &&
@@ -122,7 +103,7 @@ BOOL wawa_marr_valid_containEmptyArray(id object)
 }
 
 /** addObject: */
-void wawa_marr_addValidObject(NSMutableArray *array, id value)
+inline void wawa_marr_addValidObject(NSMutableArray *array, id value)
 {
     if (wawa_marr_valid_containEmptyArray(array) &&
         wawa_value_valid(value))
@@ -132,7 +113,7 @@ void wawa_marr_addValidObject(NSMutableArray *array, id value)
 }
 
 /** addObjectsFromArray: */
-void wawa_marr_addValidArray(NSMutableArray *array, NSArray *anArray)
+inline void wawa_marr_addValidArray(NSMutableArray *array, NSArray *anArray)
 {
     if (wawa_marr_valid_containEmptyArray(array) &&
         wawa_arr_valid(anArray))
@@ -154,18 +135,18 @@ BOOL __wawa_marr_rangeValid(NSMutableArray *array, NSRange range)
 }
 
 /** subarrayWithRange */
-NSArray* wawa_marr_subarrayWithRange(NSMutableArray *array, NSRange range)
+inline NSArray* wawa_marr_subarrayWithRange(NSMutableArray *array, NSRange range)
 {
     if (__wawa_marr_rangeValid(array, range))
     {
-      return  [array subarrayWithRange:range];
+        return  [array subarrayWithRange:range];
     }
     
     return nil;
 }
 
 /** removeObjectsInRange */
-void wawa_marr_removeObjectsInRange(NSMutableArray *array, NSRange range)
+inline void wawa_marr_removeObjectsInRange(NSMutableArray *array, NSRange range)
 {
     if (__wawa_marr_rangeValid(array, range))
     {
@@ -174,7 +155,7 @@ void wawa_marr_removeObjectsInRange(NSMutableArray *array, NSRange range)
 }
 
 /** insertObject:atIndex: */
-void wawa_marr_InsertValidObject(NSMutableArray *array, id value, NSInteger index)
+inline void wawa_marr_InsertValidObject(NSMutableArray *array, id value, NSInteger index)
 {
     if (wawa_marr_valid_containEmptyArray(array) &&
         wawa_value_valid(value) &&
@@ -185,17 +166,17 @@ void wawa_marr_InsertValidObject(NSMutableArray *array, id value, NSInteger inde
 }
 
 /** removeObjectAtIndex: */
-void wawa_marr_removeObjectAtIndex(NSMutableArray *array, NSInteger index)
+inline void wawa_marr_removeObjectAtIndex(NSMutableArray *array, NSInteger index)
 {
     if (wawa_marr_valid(array) &&
-         index < array.count)
+        index < array.count)
     {
         [array removeObjectAtIndex:index];
     }
 }
 
 /** replaceObjectAtIndex:withObject: */
-void wawa_marr_replaceObjectAtIndex(NSMutableArray *array, id value, NSInteger index)
+inline void wawa_marr_replaceObjectAtIndex(NSMutableArray *array, id value, NSInteger index)
 {
     if (wawa_marr_valid(array) &&
         wawa_value_valid(value) &&
@@ -205,7 +186,3 @@ void wawa_marr_replaceObjectAtIndex(NSMutableArray *array, id value, NSInteger i
     }
 }
 
-
-NS_ASSUME_NONNULL_END
-
-#endif

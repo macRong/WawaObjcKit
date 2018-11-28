@@ -1,34 +1,20 @@
 //
-//  WawaString.h
+//  WawaObjcKitString.m
 //  WawaObjcKit
 //
-//  Created by macRong on 2018/11/1.
-//  Copyright © 2018年 macRong. All rights reserved.
+//  Created by mac on 2018/11/28.
+//  Copyright © 2018年 mac. All rights reserved.
 //
 
-#ifndef WawaString_h
-#define WawaString_h
-#import "WawaObject.h"
-NS_ASSUME_NONNULL_BEGIN
+#import "WawaObjcKitString.h"
 
-// ============== @interface ========================
+static inline BOOL __wawa_mstr_strRange(NSString *str, NSRange range);
+static inline BOOL __wawa_str_strRange(NSString *str, NSRange range);
 
-BOOL wawa_str_Is_Valid(NSString *str);
-NSString* wawa_str_protect(NSString *str);
-NSString* wawa_str_substringWithRange(NSString *str, NSRange range);
-
-BOOL wawa_mstr_Is_Valid(NSString *str);
-NSString* wawa_mstr_protect(NSString *str);
-NSString* wawa_mstr_substringWithRange(NSString *str, NSRange range);
-void wawa_mstr_insertStringAtIndex(NSMutableString *str, NSString *string, NSUInteger atIndex);
-void wawa_mstr_replaceCharactersInRangeWithString(NSMutableString *str, NSRange range, NSString *string);
-void wawa_mstr_deleteCharactersInRange(NSMutableString *str, NSRange range);
-
-// ============== @implementation ===================
 
 #pragma mark -  —————————————— NSString —————————————————
 
-BOOL wawa_str_Is_Valid(NSString *str)
+inline BOOL wawa_str_Is_Valid(NSString *str)
 {
     if (wawa_objc_iskindClass_valid(str, [NSString class]) &&
         str.length > 0)
@@ -40,7 +26,7 @@ BOOL wawa_str_Is_Valid(NSString *str)
 }
 
 /** 当为nil时，返回@"" */
-NSString *wawa_str_protect(NSString *str)
+inline NSString *wawa_str_protect(NSString *str)
 {
     return wawa_str_Is_Valid(str) ? str : @"";
 }
@@ -58,7 +44,7 @@ BOOL __wawa_str_strRange(NSString *str, NSRange range)
 }
 
 /** substringWithRange: */
-NSString* wawa_str_substringWithRange(NSString *str, NSRange range)
+inline NSString* wawa_str_substringWithRange(NSString *str, NSRange range)
 {
     if (__wawa_str_strRange(str, range))
     {
@@ -71,7 +57,7 @@ NSString* wawa_str_substringWithRange(NSString *str, NSRange range)
 
 #pragma mark -  —————————————— NSMutableString —————————————
 
-BOOL wawa_mstr_Is_Valid(NSMutableString *str)
+inline BOOL wawa_mstr_Is_Valid(NSMutableString *str)
 {
     if (wawa_objc_iskindClass_valid(str, [NSMutableString class]) &&
         str.length > 0)
@@ -94,13 +80,13 @@ BOOL __wawa_mstr_strRange(NSString *str, NSRange range)
     return NO;
 }
 
-NSString* wawa_mstr_protect(NSString *str)
+inline NSString* wawa_mstr_protect(NSString *str)
 {
     return wawa_mstr_Is_Valid(str) ? str : @"";
 }
 
 /** substringWithRange: */
-NSString* wawa_mstr_substringWithRange(NSMutableString *str, NSRange range)
+inline NSString* wawa_mstr_substringWithRange(NSMutableString *str, NSRange range)
 {
     if (__wawa_mstr_strRange(str, range))
     {
@@ -111,7 +97,7 @@ NSString* wawa_mstr_substringWithRange(NSMutableString *str, NSRange range)
 }
 
 /** replaceCharactersInRange:withString: */
-void wawa_mstr_replaceCharactersInRangeWithString(NSMutableString *str, NSRange range, NSString *string)
+inline void wawa_mstr_replaceCharactersInRangeWithString(NSMutableString *str, NSRange range, NSString *string)
 {
     if (__wawa_mstr_strRange(str, range) &&
         wawa_str_Is_Valid(string))
@@ -121,7 +107,7 @@ void wawa_mstr_replaceCharactersInRangeWithString(NSMutableString *str, NSRange 
 }
 
 /** insertString:atIndex: */
-void wawa_mstr_insertStringAtIndex(NSMutableString *str, NSString *string, NSUInteger atIndex)
+inline void wawa_mstr_insertStringAtIndex(NSMutableString *str, NSString *string, NSUInteger atIndex)
 {
     if (wawa_mstr_Is_Valid(str) &&
         wawa_str_Is_Valid(string)&&
@@ -132,13 +118,10 @@ void wawa_mstr_insertStringAtIndex(NSMutableString *str, NSString *string, NSUIn
 }
 
 /** deleteCharactersInRange: */
-void wawa_mstr_deleteCharactersInRange(NSMutableString *str, NSRange range)
+inline void wawa_mstr_deleteCharactersInRange(NSMutableString *str, NSRange range)
 {
     if (__wawa_mstr_strRange(str, range))
     {
         [str deleteCharactersInRange:range];
     }
 }
-
-NS_ASSUME_NONNULL_END
-#endif /* WawaString_h */
