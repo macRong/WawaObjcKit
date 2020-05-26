@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "WawaObjcKit"
-  s.version      = "0.0.2"
-  s.summary      = "WawaObjcKit 项目中常用的取值赋值等基本使用封装"
+  s.version      = "1.0"
+  s.summary      = "WawaObjcKit 针对NSObject、NSString、NSArray(mu)、NSDictionary(mu)取值、赋值等安全性基本使用"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
