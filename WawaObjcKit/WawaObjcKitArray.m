@@ -186,3 +186,13 @@ inline void wawa_marr_replaceObjectAtIndex(NSMutableArray *array, id value, NSIn
     }
 }
 
+inline  id wawa_marr_getValidObject(NSMutableArray *array, NSInteger index)
+{
+    if (wawa_marr_valid(array) &&
+        index < array.count)
+    {
+        return array[index];
+    }
+    
+    return nil;
+}

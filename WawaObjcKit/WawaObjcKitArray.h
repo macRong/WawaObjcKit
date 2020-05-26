@@ -25,6 +25,7 @@ FOUNDATION_EXTERN  void wawa_marr_removeObjectsInRange(NSMutableArray *array, NS
 FOUNDATION_EXTERN  void wawa_marr_InsertValidObject(NSMutableArray *array, id value, NSInteger index);
 FOUNDATION_EXTERN  void wawa_marr_removeObjectAtIndex(NSMutableArray *array, NSInteger index);
 FOUNDATION_EXTERN  void wawa_marr_replaceObjectAtIndex(NSMutableArray *array, id value, NSInteger index);
+FOUNDATION_EXTERN  id wawa_marr_getValidObject(NSMutableArray *array, NSInteger index);
 
 NS_ASSUME_NONNULL_END
 
