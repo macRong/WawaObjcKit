@@ -3,7 +3,10 @@ Object-C Valid Object
 
 ### Usage
 
-`pod WawaObjcKit`
+```
+pod 'WawaObjcKit'
+
+```
 
 ### Objc
 
