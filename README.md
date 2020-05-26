@@ -1,6 +1,10 @@
 # WawaObjctKit
 Object-C Valid Object
 
+### Usage
+
+`pod WawaObjcKit`
+
 ### Objc
 
 ```
