@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 FOUNDATION_EXTERN  BOOL wawa_arr_valid(id object);
 FOUNDATION_EXTERN  BOOL wawa_arr_valid_containEmptyArray(id object);
 FOUNDATION_EXTERN  id wawa_arr_getValidObject(NSArray *array, NSInteger index);
@@ -26,6 +24,4 @@ FOUNDATION_EXTERN  void wawa_marr_InsertValidObject(NSMutableArray *array, id va
 FOUNDATION_EXTERN  void wawa_marr_removeObjectAtIndex(NSMutableArray *array, NSInteger index);
 FOUNDATION_EXTERN  void wawa_marr_replaceObjectAtIndex(NSMutableArray *array, id value, NSInteger index);
 FOUNDATION_EXTERN  id wawa_marr_getValidObject(NSMutableArray *array, NSInteger index);
-
-NS_ASSUME_NONNULL_END
 

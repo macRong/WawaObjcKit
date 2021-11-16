@@ -7,6 +7,7 @@
 //
 
 #import "WawaObjcKitString.h"
+#import "WawaObjcKitObject.h"
 
 static inline BOOL __wawa_mstr_strRange(NSString *str, NSRange range);
 static inline BOOL __wawa_str_strRange(NSString *str, NSRange range);

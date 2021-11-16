@@ -7,6 +7,7 @@
 //
 
 #import "WawaObjcKitArray.h"
+#import "WawaObjcKitObject.h"
 
 static inline BOOL __wawa_marr_rangeValid(NSMutableArray *array, NSRange range);
 static inline BOOL __wawa_arr_rangeValid(NSArray *array, NSRange range);

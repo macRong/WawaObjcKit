@@ -7,6 +7,7 @@
 //
 
 #import "WawaObjcKitDictionary.h"
+#import "WawaObjcKitObject.h"
 
 
 #pragma mark -  —————————————— NSDictionary —————————————
